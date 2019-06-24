@@ -13,5 +13,14 @@
    varJDKVersion: '1.8' 
 
  steps:
- - bash: echo $(varJDKVersion)
+   - task: Maven@3
+     inputs:
+       mavenPomFile: 'pom.xml'
+       mavenOptions: '-Xmx3072m'
+       javaHomeOption: 'JDKVersion'
+       jdkVersionOption: $(varJDKVersion)
+       jdkArchitectureOption: 'x64'
+       publishJUnitResults: false
+       testResultsFiles: '**/surefire-reports/TEST-*.xml'
+       goals: 'package'
 
