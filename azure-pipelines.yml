@@ -9,8 +9,9 @@
  pool:
    vmImage: 'Ubuntu-16.04'
 
-variables:
-  varJDKVersion: '1.8' 
+ variables:
+   varJDKVersion: '1.8' 
+
  steps:
-   - bash: echo $(varJDKVersion)
+ - bash: echo $(varJDKVersion)
 
