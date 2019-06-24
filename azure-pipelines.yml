@@ -3,6 +3,9 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
+variables:
+- group: vgTest1
+
  trigger:
  - master
 
@@ -15,7 +18,7 @@
        mavenPomFile: 'pom.xml'
        mavenOptions: '-Xmx3072m'
        javaHomeOption: 'JDKVersion'
-       jdkVersionOption: '1.8'
+       jdkVersionOption: $(vgJDKVersion)
        jdkArchitectureOption: 'x64'
        publishJUnitResults: false
        testResultsFiles: '**/surefire-reports/TEST-*.xml'
